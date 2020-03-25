@@ -74,8 +74,8 @@ export const getToken = () => {
     return localStorage.getItem(Tokenkey)
 }
 
-export const acquireAzureToken = async () => {
-    const oauth2_url = 'https://ecloudture.azurewebsites.net/api/token?code=mqM1t4TQFaqZ6THZXaau1WnZ5PPRlepd7nf6ioI2Gcw1/C6R3p1PeQ==';
+export const acquireAzureToken = async() => {
+    const oauth2_url = 'https://azuremsdemo.azurewebsites.net/api/token?code=DDJRz/1MYvCsDSMvqD66r6JuCgYXD3BPsaXEYIuW17hzB6DkRrxpUg==';
     let AD_REST_Response = await axios({
         method: 'post',
         url: oauth2_url

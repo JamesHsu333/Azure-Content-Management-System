@@ -45,7 +45,7 @@ const GraphService = axios.create({
 
 //Graph Service Request interceptor
 
-GraphService.interceptors.request.use(async (config) => {
+GraphService.interceptors.request.use(async(config) => {
     const now = Date.now()
     if (now > store.getters.token.expiresOn) {
         await store.dispatch('getUserInfo')
@@ -90,9 +90,8 @@ const AzureService = axios.create({
     }
 })
 
-AzureService.interceptors.request.use(async (config) => {
+AzureService.interceptors.request.use(async(config) => {
     await store.dispatch('getAzureToken')
-
     config.headers['Authorization'] = 'Bearer ' + store.getters.token.azure.access_token
     return config
 }, (error) => {
@@ -105,6 +104,7 @@ AzureService.interceptors.response.use((response) => {
     if (error) {
         // Get error response
         console.log(error.response)
+        console.log(error)
         errorHandle(error.response.status, error.response.data.error)
         return Promise.reject(error.response.data)
     } else {
@@ -117,4 +117,4 @@ AzureService.interceptors.response.use((response) => {
     }
 })
 
-export {GraphService, AzureService}
+export { GraphService, AzureService }

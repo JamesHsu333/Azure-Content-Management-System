@@ -3,7 +3,7 @@
     .filter-container
       el-input.filter-item(v-model="search" placeholder='Name or Email' style='width: 200px;' size='mini')
       el-button.filter-item(style='margin-left: 10px;' type='primary' icon='el-icon-edit' size='mini' @click='dialogFormVisible=true')
-        | Create User !!!
+        | Create User
       el-button.filter-item(style='margin-left: 10px;' type='danger' icon='el-icon-delete' size='mini' :disabled='selectedUser.length===0 ? true : false ' @click="deleteConfirm(deleteSelectedUser, 'Delete Selected User')")
         | Delete Selected User
     el-table(v-loading="listLoading"
